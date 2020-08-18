@@ -1,0 +1,8 @@
+<div class="container">
+  <br>
+    <ion-card *ngFor="let option of bumperOptions; let i = index" class="ion-text-center" button (click)="selectCardAt(i)">
+      <img src="{{option.src}}" alt="">
+      <ion-card-subtitle>{{option.bumper}}</ion-card-subtitle>
+    </ion-card>
+  <br>
+</div>

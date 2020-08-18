@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Werner Exchange Demo
+    </ion-title>
+    <ion-button slot="end" (click)="reset()">Reset</ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <br>
+  <truck-preview [truck]="cascadiaTruck"></truck-preview>
+  <div class="configurations">
+    <div class="labels">
+      <h2>{{cascadiaTruck.make}}</h2>
+      <h4>{{cascadiaTruck.model}}</h4>
+    </div>
+    <configuration-carousel #scrollingOptionsComponent
+      (selectTab)="onSubpageChange($event)"
+      [tabIndex]="0"
+      [options]="options"
+      [selectedIndex]="0">
+    </configuration-carousel>
+    <div [ngSwitch]="tab" class="options">
+      <color-picker *ngSwitchCase="'Color'" (didSelectColor)="updateTruckWith($event)"></color-picker>
+      <aerodynamics *ngSwitchCase="'Aerodynamics'" (didSelectAero)="updateTruckWith($event)"></aerodynamics>
+      <sun-visor *ngSwitchCase="'Sun Visor'" (didSelectSunVisor)="updateTruckWith($event)"></sun-visor>
+      <trim-package *ngSwitchCase="'Trim Package'" (didSelectTrim)="updateTruckWith($event)"></trim-package>
+      <mirrors *ngSwitchCase="'Mirrors'" (didSelectMirror)="updateTruckWith($event)"></mirrors>
+      <bumper *ngSwitchCase="'Bumper'" (didSelectBumper)="updateTruckWith($event)"></bumper>
+    </div>
+  </div>
+</ion-content>

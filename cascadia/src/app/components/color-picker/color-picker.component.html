@@ -1,0 +1,11 @@
+<div class="container">
+  <ion-row>
+    <ion-col *ngFor="let color of colors; let i = index" size=4>
+      <color-button 
+        [color]="color.color" 
+        [isSelected]="color.isSelected" 
+        (click)="selectColorAt(i)">
+      </color-button>
+    </ion-col>
+  </ion-row>
+</div>
