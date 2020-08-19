@@ -1,0 +1,12 @@
+<ion-segment 
+  class="hide-scrollbar" 
+  scrollable 
+  [(ngModel)]="tab" 
+  (ionChange)="onSubpageChange($event)" 
+  mode="md" 
+  tabindex="0">
+  <ion-segment-button *ngFor="let option of options" value={{option.title}}>
+    <ion-icon *ngIf="option.icon !== null && option.icon.length" name="{{option.icon}}"></ion-icon>
+    <ion-label>{{option.title}}</ion-label>
+  </ion-segment-button>
+</ion-segment>
